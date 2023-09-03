@@ -13,6 +13,12 @@ export default defineComponent({
   name: 'ABout',
   components: {
     HelloWorld,
+  },
+  setup(props: any, context: any){
+    console.log(" props ==", props);
+    console.log(" context ==", context);
   }
 })
+
+
 </script>

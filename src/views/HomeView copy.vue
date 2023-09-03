@@ -4,14 +4,13 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
     {{msg}}
     <input v-model="Person.name"/>
-    <button @click="submit">button</button>
-    <chrildrenComponents ref="chrildrenComponentsRef" :person="Person" />
-    <defineComponentsTest></defineComponentsTest>
+    <button >button</button>
+    <chrildrenComponents></chrildrenComponents>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, setup, Vue } from 'vue-class-component';
+// import { Options, setup, Vue } from 'vue-class-component';
 // import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
 // @Options({
@@ -31,15 +30,15 @@ import { Options, setup, Vue } from 'vue-class-component';
 //     console.log('activated');
 //   }
 // }
-import { computed, onMounted, reactive, Ref, ref } from "vue";
+import { computed, reactive, Ref, ref } from "vue";
 import chrildrenComponents from '@/components/chrildrenComponents.vue';
-import defineComponentsTest from '@/components/defineComponentsTest.vue';
 
+// @Options({
+//   components: {
+//     chrildrenComponents,
+//   },
+// })
 export default {
-  components:{
-    chrildrenComponents,
-    defineComponentsTest
-  },
   setup(props: any, context: any){
     console.log(" props ==", props);
     console.log(" context ==", context);
@@ -77,29 +76,17 @@ export default {
     objList.value = {name: 'g', age:45}
     console.log("objList  ", objList);
 
-
-    const chrildrenComponentsRef = ref(null)
-    
-    onMounted(() => {
-      
-      console.log("chrildrenComponentsRef ==", chrildrenComponentsRef);
-      let exportFunction = chrildrenComponentsRef.value?.['exportFunction']
-      console.log("exportFunction ff =", exportFunction);
-      
-    })
-
     return {
       msg,
       Person,
-      chrildrenComponentsRef
+      chrildrenComponents
     }
     
   },
   methods:{
-    submit() {
-      console.log("submit ==", this.Person);
-      
-    }
+
   }
 }
+
+
 </script>
