@@ -5,7 +5,7 @@
     {{msg}}
     <input v-model="Person.name"/>
     <button @click="submit">button</button>
-    <chrildrenComponents ref="chrildrenComponentsRef" :person="Person" />
+    <chrildrenComponents ref="chrildrenComponentsRef" :person="Person" :getFatherList="getFatherList" />
     <defineComponentsTest></defineComponentsTest>
   </div>
 </template>
@@ -88,10 +88,17 @@ export default {
       
     })
 
+
+    function getFatherList() {
+      console.log("getFatherList");
+      
+    }
+
     return {
       msg,
       Person,
-      chrildrenComponentsRef
+      chrildrenComponentsRef,
+      getFatherList
     }
     
   },

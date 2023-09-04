@@ -1,17 +1,31 @@
 <template>
     <div class="hello">
         chrildrenComponents {{ count }}
+
+        <button @click="clickFatherFUnction">clickFatherFUnction</button>
     </div>
   </template>
   
   <script lang="ts">
     // import { setup } from "vue-class-component";
-    import { ref, defineExpose } from "vue";
+    import { ref, defineExpose, defineProps } from "vue";
+    // const props = defineProps({
+    //     getFatherList: {
+    //         type: Function,
+    //         default: Function,
+    //         required: true
+    //     }
+    // })
 
     export default {
         props:{
             person:() => {
                 return {}
+            },
+            getFatherList: {
+                type: Function,
+                default: Function,
+                required: true
             }
         },
         setup(props: any, context: any) {
@@ -30,9 +44,18 @@
             }
             defineExpose({exportFunction})
             console.log("props person ==", props.person);
+            
+            function clickFatherFUnction() {
+                console.log("clickFatherFUnction");
+                props.getFatherList()
+                
+            }
+            
+            
             return {
                 count,
-                exportFunction
+                exportFunction,
+                clickFatherFUnction
             }
         },
         mounted () {
