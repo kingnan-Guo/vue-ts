@@ -104,7 +104,7 @@ export default {
   },
   methods:{
     submit() {
-      console.log("submit ==", this.Person);
+      // console.log("submit ==", this.Person);
       
     }
   }

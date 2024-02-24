@@ -59,7 +59,7 @@
             }
         },
         mounted () {
-            console.log("mounted person ==", this.person);
+            // console.log("mounted person ==", this.person);
         }
     }
 
